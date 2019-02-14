@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+    ${value1}
+    $!{value2}  ##如果不存在强制为空
+
+    User : $!{user}
+    User : $!{user.name},$!{user.getName()}
+    #set($title="wenda")
+    Title : $!{title}
+
+    #parse("header.html")
+</pre>
+</body>
+</html>
