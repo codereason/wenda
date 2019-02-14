@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by hy on 2019/2/13.
  */
-@Controller
+//@Controller
 public class IndexController {
     @Autowired
     WendaService wendaService;
