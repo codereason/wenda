@@ -20,4 +20,10 @@ public class QuestionService {
         return questionDAO.selectLatestQuestions(userId, offset, limit);
 
     }
+
+    public int addQuestion(Question question){
+        questionDAO.addQuestion(question);
+        return questionDAO.addQuestion(question)>0?question.getId():0;
+
+    }
 }

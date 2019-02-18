@@ -1,6 +1,7 @@
 package com.learn.controller;
 
 import com.learn.aspect.LogAspect;
+import com.learn.model.HostHolder;
 import com.learn.model.Question;
 import com.learn.model.ViewObject;
 import com.learn.service.QuestionService;
@@ -28,6 +29,9 @@ public class HomeController {
     QuestionService questionService;
     @Autowired
     UserService userService;
+    @Autowired
+    HostHolder hostHolder;
+
     @RequestMapping(path = {"/user/{userId}",},method = RequestMethod.GET)
     public String userIndex(Model model, @PathVariable("userId") int userId) {
         model.addAttribute("vos",getQuestions(userId,0,10));
