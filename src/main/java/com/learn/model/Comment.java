@@ -1,26 +1,16 @@
 package com.learn.model;
-
 import java.util.Date;
 
 /**
- * Created by hy on 2019/2/19.
+ * Created by nowcoder on 2016/7/9.
  */
 public class Comment {
     private int id;
     private int userId;
-    private Date createDate;
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    private String content;
     private int entityId;
     private int entityType;
+    private String content;
+    private Date createdDate;
     private int status;
 
     public int getId() {
@@ -31,20 +21,12 @@ public class Comment {
         this.id = id;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getEntityId() {
@@ -61,6 +43,22 @@ public class Comment {
 
     public void setEntityType(int entityType) {
         this.entityType = entityType;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public int getStatus() {

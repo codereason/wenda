@@ -15,6 +15,12 @@ import java.util.Map;
  */
 public class WendaUtils {
     private static final Logger logger = LoggerFactory.getLogger(WendaUtils.class);
+
+    public static int ENTITY_QUESTION = 1;
+    public static int ENTITY_COMMENT = 2;
+
+
+    public static  final int ANAONYMOUS_ID = 3;
     public static  String getJSONString(int code,String msg){
         JSONObject json = new JSONObject();
         json.put("code",code);
