@@ -5,6 +5,7 @@ import com.learn.model.HostHolder;
 import com.learn.model.Question;
 import com.learn.model.ViewObject;
 import com.learn.service.CommentService;
+import com.learn.service.LikeService;
 import com.learn.service.QuestionService;
 import com.learn.service.UserService;
 import com.learn.utils.WendaUtils;
@@ -42,6 +43,9 @@ public class QuestionController {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    LikeService likeService;
+
     @RequestMapping(value = "/question/add", method = {RequestMethod.POST})
     @ResponseBody
     public String addQuestion(@RequestParam("title") String title, @RequestParam("content") String content) {
@@ -75,6 +79,13 @@ public class QuestionController {
         for (Comment comment : commentList) {
             ViewObject vo = new ViewObject();
             vo.set("comment", comment);
+            if(hostHolder.getUser()==null){
+                vo.set("liked",0);
+            }else {
+                vo.set("liked",likeService.getLikeStatus(hostHolder.getUser().getId(),WendaUtils.ENTITY_COMMENT,comment.getId()));
+            }
+            vo.set("likeCount",likeService.getLikeCount(WendaUtils.ENTITY_COMMENT,comment.getId()));
+
             vo.set("user", userService.getUser(comment.getUserId()));
             vos.add(vo);
         }
